@@ -3,18 +3,28 @@
 const database = require('../database/connection.js');
 
 //dummy data to use for response in test
-let user = {
-  name:'natty',
-  age:35,
-  sex:'male'
-}
+// let user = {
+//   name:'natty',
+//   age:35,
+//   sex:'male'
+// }
 
 require('dotenv').config()
 
 function showUser(req,res,next){
-  let userData = user;
-  res.userData = userData;
-  next()
+  // let userData = user;
+  // res.userData = userData;
+  // next()
+
+  database.any('SELECT * FROM users;')
+  .then(userResponse =>{
+    res.userData = userResponse;
+    next()
+  })
+  .catch(err=>{
+    console.log(`this is the error in show user function ${err}`)
+    next(err)
+  })
 
 }
 

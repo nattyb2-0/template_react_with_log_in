@@ -1,22 +1,28 @@
 const database = require('../database/connection.js')
 
-let jobs = [
-  {
-    company:'coca-cola',
-    position:'clerk',
-    location:'mamba Point'
-  },
-  {
-    company:'pepsi',
-    position:'admin assistant',
-    location:'west Point'
-  }
-]
+// let jobs = [
+//   {
+//     company:'coca-cola',
+//     position:'clerk',
+//     location:'mamba Point'
+//   },
+//   {
+//     company:'pepsi',
+//     position:'admin assistant',
+//     location:'west Point'
+//   }
+// ]
 
 function showJobs(req,res,next){
-
-  res.jobResponse = jobs;
-  next();
+  database.any('SELECT * FROM jobs;')
+  .then((jobResponse)=>{
+    res.jobResponse = jobResponse;
+    next();
+  })
+  .catch(err=> {
+    console.log(`the error in this showjobs function is ${err}`);
+    next(err)
+  })
 }
 
 function createJob(req,res,next){
