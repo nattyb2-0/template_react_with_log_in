@@ -31,6 +31,7 @@ app.get('/',(req,res,next)=>{
   next();
 })
 
+//start using middlware of our routes
 app.use('/api', apiUserRoute)
 
 
