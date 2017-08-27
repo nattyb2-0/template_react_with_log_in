@@ -1,0 +1,25 @@
+{
+  "name": "react-template-with-login",
+  "version": "1.0.0",
+  "description": "template for react application with login",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nattyb2-0/template_react_with_log_in.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "express",
+    "login"
+  ],
+  "author": "natty b. davis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nattyb2-0/template_react_with_log_in/issues"
+  },
+  "homepage": "https://github.com/nattyb2-0/template_react_with_log_in#readme"
+}
