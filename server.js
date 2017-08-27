@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 // require our middleware
 const apiUserRoute = require('./routes/api/user.js')
-
+const apiJobRoute = require('./routes/api/jobs.js')
 
 //initialize the express server
 const app = express();
@@ -32,8 +32,8 @@ app.get('/',(req,res,next)=>{
 })
 
 //start using middlware of our routes
-app.use('/api', apiUserRoute)
-
+app.use('/api/users', apiUserRoute)
+app.use('/api/jobs', apiJobRoute)
 
 
 

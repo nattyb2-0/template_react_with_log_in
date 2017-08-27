@@ -2,10 +2,11 @@
 const express = require('express');
 const apiUserRoute = express.Router();
 
+//middleware for the get route
 const showUser = require('../../models/user.js')
 
 
-apiUserRoute.get('/users', showUser, (req,res,next)=>{
+apiUserRoute.get('/', showUser, (req,res,next)=>{
  res.json(res.userData)
 })
 
