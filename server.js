@@ -5,6 +5,11 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+
+// require our middleware
+const apiUserRoute = require('./routes/api/user.js')
+
+
 //initialize the express server
 const app = express();
 const PORT = process.argv[2] || process.env.port || 3000;
@@ -25,6 +30,8 @@ app.get('/',(req,res,next)=>{
   res.send('thanks for coming to this site');
   next();
 })
+
+app.use('/api', apiUserRoute)
 
 
 
