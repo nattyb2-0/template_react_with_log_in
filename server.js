@@ -5,7 +5,7 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-
+require('dotenv').config()
 // require our middleware
 const apiUserRoute = require('./routes/api/user.js')
 const apiJobRoute = require('./routes/api/jobs.js')
