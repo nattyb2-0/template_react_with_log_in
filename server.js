@@ -9,12 +9,23 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.argv[2] || process.env.port || 3000;
 
-//allow cross browser request and access on any routes in application
+
+//use our dependencies and our middlewares
+//allow cross browser request and access on any routes in application as middleware
 app.use((req,res,next)=>{
   res.header('Access-Control-Allow-Origin', '*');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 })
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+
+app.get('/',(req,res,next)=>{
+  res.send('thanks for coming to this site');
+  next();
+})
+
 
 
 
