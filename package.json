@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/nattyb2-0/template_react_with_log_in/issues"
   },
-  "homepage": "https://github.com/nattyb2-0/template_react_with_log_in#readme"
+  "homepage": "https://github.com/nattyb2-0/template_react_with_log_in#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2"
+  }
 }
