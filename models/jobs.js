@@ -1,3 +1,5 @@
+const database = require('../database/connection.js')
+
 let jobs = [
   {
     company:'coca-cola',
@@ -17,5 +19,21 @@ function showJobs(req,res,next){
   next();
 }
 
+function createJob(req,res,next){
+  const job = {
+    company : req.body.companyName,
+    position: req.body.position,
+    location: req.body.location,
+    date_created: new Date()
+  }
 
-module.exports = showJobs;
+  database.none(`INSERT INTO jobs(company,position,location,date_created)
+    VALUES($/company/,$/position/,$/location/,$/date_created/);`, job)
+  .then(next())
+  .catch(err=> next(err))
+
+
+
+}
+
+module.exports = {showJobs,createJob};
