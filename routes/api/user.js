@@ -3,17 +3,17 @@ const express = require('express');
 const apiUserRoute = express.Router();
 
 //middleware for the get route
-const {showUser} = require('../../models/user.js')
+const {showListers} = require('../../models/user.js')
 
 //middleware for post route
-const {createUser} = require('../../models/user.js')
+const {createListers} = require('../../models/user.js')
 
-apiUserRoute.get('/', showUser, (req,res,next)=>{
+apiUserRoute.get('/', showListers, (req,res,next)=>{
  res.json(res.userData)
  next()
 })
 
-apiUserRoute.post('/', createUser, (req,res,next)=>{
+apiUserRoute.post('/', createListers, (req,res,next)=>{
   res.status(200).send('post action performed')
   next()
 })

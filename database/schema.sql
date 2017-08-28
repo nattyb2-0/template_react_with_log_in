@@ -1,8 +1,13 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS listers;
 DROP TABLE IF EXISTS jobs;
 
-CREATE TABLE users (
+CREATE TABLE listers (
   id SERIAL PRIMARY KEY,
+  firstname VARCHAR(25) NOT NULL,
+  lastname VARCHAR(25) NOT NULL,
+  address VARCHAR NOT NULL,
+  phonenumber VARCHAR NOT NULL,
+  socialmedia VARCHAR,
   email VARCHAR NOT NULL,
   password VARCHAR NOT NULL,
   date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP

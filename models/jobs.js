@@ -14,7 +14,7 @@ const database = require('../database/connection.js')
 // ]
 
 function showJobs(req,res,next){
-  database.any('SELECT * FROM jobs;')
+  database.any('SELECT * FROM jobs ORDER BY jobs.date_created DESC;')
   .then((jobResponse)=>{
     res.jobResponse = jobResponse;
     next();

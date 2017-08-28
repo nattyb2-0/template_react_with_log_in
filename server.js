@@ -5,13 +5,18 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+//initialize the express server
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
 require('dotenv').config()
 // require our middleware
 const apiUserRoute = require('./routes/api/user.js')
 const apiJobRoute = require('./routes/api/jobs.js')
 
-//initialize the express server
-const app = express();
+
 const PORT = process.argv[2] || process.env.port || 3000;
 
 
@@ -24,7 +29,7 @@ app.use((req,res,next)=>{
 })
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
+
 
 app.get('/',(req,res,next)=>{
   res.send('thanks for coming to this site');
